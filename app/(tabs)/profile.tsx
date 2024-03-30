@@ -1,10 +1,19 @@
-import { View, Text } from "react-native";
 import React from "react";
+import { View, Button, Text } from "react-native";
+import { useAuth } from "@clerk/clerk-expo";
 
 const ProfileTab = () => {
+  const { isLoaded, isSignedIn, signOut } = useAuth();
+
+  const handleSignOut = () => {
+    if (isLoaded && isSignedIn) {
+      signOut();
+    }
+  };
+
   return (
     <View>
-      <Text>ProfileTab</Text>
+      <Button title="Logout" onPress={handleSignOut} />
     </View>
   );
 };
