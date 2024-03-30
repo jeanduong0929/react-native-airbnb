@@ -10,6 +10,7 @@ const tabs = [
     icon: ({ color, size }: { color: string; size: number }) => (
       <Ionicons name={"search"} size={size} color={color} />
     ),
+    headerShown: false,
   },
   {
     name: "wishlist",
@@ -17,6 +18,7 @@ const tabs = [
     icon: ({ color, size }: { color: string; size: number }) => (
       <Ionicons name={"heart-outline"} size={size} color={color} />
     ),
+    headerShown: true,
   },
   {
     name: "trips",
@@ -24,6 +26,7 @@ const tabs = [
     icon: ({ color, size }: { color: string; size: number }) => (
       <FontAwesome5 name={"airbnb"} size={size} color={color} />
     ),
+    headerShown: true,
   },
   {
     name: "inbox",
@@ -31,6 +34,7 @@ const tabs = [
     icon: ({ color, size }: { color: string; size: number }) => (
       <Ionicons name={"chatbox-ellipses-outline"} size={size} color={color} />
     ),
+    headerShown: true,
   },
   {
     name: "profile",
@@ -38,6 +42,7 @@ const tabs = [
     icon: ({ color, size }: { color: string; size: number }) => (
       <SimpleLineIcons name="user" size={size} color={color} />
     ),
+    headerShown: true,
   },
 ];
 
@@ -61,6 +66,7 @@ export default function TabLayout() {
           key={index}
           name={tab.name}
           options={{
+            headerShown: tab.headerShown,
             tabBarLabel: tab.title,
             title: tab.title,
             tabBarIcon: tab.icon,
